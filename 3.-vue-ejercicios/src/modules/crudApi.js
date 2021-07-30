@@ -1,11 +1,13 @@
 import axios from 'axios';
 
 const state = {
-    cursos: []
+    cursos: [],
+    curso: {}
 };
 
 const getters = {
-    allCursos: state => state.cursos
+    allCursos: state => state.cursos,
+    getCurso: state => state.curso,
 };
 
 const actions = {
@@ -56,13 +58,44 @@ const actions = {
         } catch (err) {
             console.log(err.response)
         }
-    }
+    },
+
+    async updateCursoAction({ commit }, updateCurso){
+        try {
+            let options = {
+                method: "PUT",
+                headers: {
+                    "Content-type" : "application/json; charset=utf-8"
+                },
+                data: JSON.stringify({
+                    curso: updateCurso.curso,
+                    carrera: updateCurso.carrera
+                })
+            };
+
+            let res = await axios(`http://localhost:5000/cursos/${updateCurso.id}`, options);
+            commit('updateCurso', res.data);
+        } catch (err) {
+            console.log(err.response)
+        }
+    },
+
+    cursoAction({ commit }, curso){
+        commit('actualizarCurso', curso)
+    },
 };
 
 const mutations = {
     setCursos: (state, cursos) => state.cursos = cursos,
     newCurso: (state, curso) => state.cursos.push(curso),
     removeCurso: (state, id) => state.cursos = state.cursos.filter(curso => curso.id !== id),
+    updateCurso: (state, cursoUpdate) => {
+        const index = state.cursos.findIndex(curso => curso.id === cursoUpdate.id);
+        if(index !== -1){
+            state.cursos.splice(index, 1, cursoUpdate)
+        }
+    },
+    actualizarCurso: (state, curso) => state.curso = curso,
 };
 
 export default {
