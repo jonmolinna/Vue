@@ -9,39 +9,68 @@
                     <input type="text" class="form-control" placeholder="Ingrese Carrera" v-model="carrera">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success form-control">Enviar</button>
+                    <button class="btn btn-success form-control">{{id? "Actualizar" : "Guardar"}}</button>
                 </div>
-            </form> 
-        </div> 
+            </form>
+        </div>
     </div>
+
+    
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
     data(){
         return {
             curso: "",
             carrera: "",
+            id: null,
         }
     },
     methods: {
-        ...mapActions(['addCursoAction']),
+        ...mapActions(['addCursoAction', 'updateCursoAction']),
 
         addCurso(e){
             e.preventDefault();
-            
-            let newCurso = {
-                curso: this.curso,
-                carrera: this.carrera
-            }
+            if(this.id){
+                let updateCurso = {
+                    id: this.id,
+                    curso: this.curso,
+                    carrera: this.carrera,
+                }
+                //console.log(updateCurso)
+                this.updateCursoAction(updateCurso)
+                this.id = null;
+                this.curso = "";
+                this.carrera = "";
 
-            this.addCursoAction(newCurso)
-            this.curso = "";
-            this.carrera = "";
-        }
+            } else {
+                let newCurso = {
+                    curso: this.curso,
+                    carrera: this.carrera
+                }
+
+                this.addCursoAction(newCurso)
+                this.curso = "";
+                this.carrera = "";
+
+            }
+            
+        },
 
     },
+    computed: {
+        ...mapGetters(['getCurso']),
+    },
+    watch: {
+        getCurso: function(){
+            this.carrera = this.getCurso.carrera,
+            this.curso = this.getCurso.curso,
+            this.id = this.getCurso.id
+        }
+    }
+    
 };
 </script>
