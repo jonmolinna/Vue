@@ -2,6 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-12 mt-5">
+        <ArtistSearch />
+      </div>
+      <div class="col-12 mt-5">
         <CrudApp />
       </div>
       <div class="col-12 mt-5">
@@ -14,12 +17,14 @@
 <script>
 import CrudApi from './components/CrudApi.vue';
 import CrudApp from './components/CrudApp.vue';
+import ArtistSearch from './components/ArtistSearch.vue';
 
 export default {
   name: 'App',
   components: {
     CrudApi,
-    CrudApp 
+    CrudApp,
+    ArtistSearch,
   }
 }
 </script>
