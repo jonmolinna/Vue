@@ -1,0 +1,34 @@
+{
+  "cursos": [
+    {
+      "id": 2,
+      "curso": "PhotoShop",
+      "carrera": "Diseño"
+    },
+    {
+      "id": 1627058305267,
+      "curso": "Economia 1",
+      "carrera": "Negocios"
+    },
+    {
+      "id": 1627485235371,
+      "curso": "Economia 1",
+      "carrera": "Negocios"
+    },
+    {
+      "curso": "Economia 1",
+      "carrera": "Negocios",
+      "id": 1627657694273
+    },
+    {
+      "curso": "Economia 4",
+      "carrera": "Negocios",
+      "id": 1627663572880
+    },
+    {
+      "curso": "Hola a como",
+      "carrera": "todas como",
+      "id": 1627663698784
+    }
+  ]
+}
