@@ -1,0 +1,14 @@
+Atributos
+--------------------------------------------------------------
+v-bind:name="" => son atributos dinamicos
+
+<span v-bind:title="message2">
+    Hola Mundo
+</span>
+
+
+Metodos
+----------------------------------------------
+v-on:click o @click => se llaman los Metodos
+
+<button v-on:click="reverseMessage">Reverse Message</button>
