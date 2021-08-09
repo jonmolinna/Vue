@@ -1,0 +1,4 @@
+npm install json-server
+npm install axios
+
+npm run fake-api
