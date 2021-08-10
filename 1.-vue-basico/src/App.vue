@@ -7,6 +7,11 @@
     <Methods />
     <hr>
     <Componente />
+    <hr>
+    <Atributos />
+    <hr>
+    <Computed />
+    <hr>
   </div>
 </template>
 
@@ -15,6 +20,8 @@ import DeclarativeRendering from'./components/DeclarativeRendering.vue';
 import Condicionales from './components/Condicionales.vue';
 import Methods from './components/Methods.vue';
 import Componente from './components/Componente.vue';
+import Atributos from './components/Atributos.vue';
+import Computed from './components/Computed.vue';
 
 export default {
   name: 'App',
@@ -22,7 +29,9 @@ export default {
     DeclarativeRendering,
     Condicionales,
     Methods,
-    Componente
+    Componente,
+    Atributos,
+    Computed
   }
 }
 </script>
