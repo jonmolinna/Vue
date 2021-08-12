@@ -20,6 +20,7 @@
     <hr>
     <Eventos />
     <hr>
+    <Formularios />
   </div>
 </template>
 
@@ -34,6 +35,7 @@ import ClassStyle from './components/ClassStyle.vue';
 import ConditionalRendering from './components/ConditionalRendering.vue';
 import ListRendering from './components/ListRendering.vue';
 import Eventos from './components/Eventos.vue';
+import Formularios from './components/Formularios.vue';
 
 export default {
   name: 'App',
@@ -47,7 +49,8 @@ export default {
     ClassStyle,
     ConditionalRendering,
     ListRendering,
-    Eventos
+    Eventos,
+    Formularios,
   }
 }
 </script>
