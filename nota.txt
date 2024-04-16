@@ -1,0 +1,30 @@
+ref => es para hacer reactivo a un variable
+
+Model
+-------------------------------
+1. Option API
+--------------------
+export default {
+    name: "ComponentName",      
+    props: { ... },             // Props
+    data() { ... },             // Data variables
+    computed: { ... },          // Computed props
+    methods: { ... },           // Functions
+    mounted() { ... },          // Mounted hook (lifecycle)
+}
+
+2. Composition API
+----------------------------
+export default {
+    name: "ComponentName",
+    props: { ... },             // Props
+    setup() {
+        // Init logic, lifecycle hooks, etc ...
+        return {
+            // Data, methods, computed, etc ...
+        }
+    }
+}
+
+-- Snippet Generator App
+    - File -> Preferences -> Configure user Snippets
