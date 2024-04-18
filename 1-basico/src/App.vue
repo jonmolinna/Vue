@@ -1,5 +1,7 @@
 <template>
   <h3>7. Ejercicio</h3>
+  <Contador />
+  <br><br>
   <Tasks />
   <br><br>
   <TeacherForm />
@@ -36,6 +38,7 @@
   import ModelForm from './components/form/ModelForm.vue';
   import TeacherForm from './components/ejercicio/Teacher.vue';
   import Tasks from './components/ejercicio/Tasks.vue';
+  import Contador from './components/ejercicio/Contador.vue';
 
 </script>
 
