@@ -7,10 +7,20 @@
             @showAlert="showAlert"
         />
     </div>
+    <br><br><br>
+    <div class="container">
+        <PostsSetup 
+            v-for="product in products" :key="product.id" 
+            :name="product.name" 
+            :price="product.price"
+            @showAlert="showAlert"
+        />
+    </div>
 </template>
 
 <script lang="ts" setup>
     import PostDetail from './PostDetail.vue';
+    import PostsSetup from './PostsSetup.vue';
     
     interface productInterface {
         id: number,
