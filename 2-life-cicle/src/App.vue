@@ -1,9 +1,14 @@
 <template>
   <h3>Ejercicios</h3>
+  <p>Resolucion</p>
+  <FacturacionResuelto></FacturacionResuelto>
   <p>Shopping Card</p>
   <ShoppingCar></ShoppingCar>
   <p>Lista de tareas</p>
   <TasksList></TasksList>
+  <hr>
+  <h3>Directivas Personalizadas</h3>
+  <DirectivasCustom></DirectivasCustom>
   <hr>
   <h3>Computed</h3>
   <p>Computed Composition Api</p>
@@ -29,6 +34,8 @@ import TasksList from './ejercicio/TasksList.vue';
 import ComputedOptionApi from './components/ComputedOptionApi.vue';
 import ComputedCompositionApi from './components/ComputedCompositionApi.vue';
 import ShoppingCar from './ejercicio/ShoppingCar.vue';
+import FacturacionResuelto from './ejercicio/FacturacionResuelto.vue';
+import DirectivasCustom from './components/DirectivasCustom.vue';
 
 export default defineComponent({
   name: 'App',
@@ -39,7 +46,9 @@ export default defineComponent({
     TasksList,
     ComputedOptionApi,
     ComputedCompositionApi,
-    ShoppingCar
+    ShoppingCar,
+    FacturacionResuelto,
+    DirectivasCustom,
   }
 });
 </script>
