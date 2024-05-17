@@ -1,17 +1,18 @@
-import { ref } from "vue";
+import { Ref, ref } from "vue";
+import postInterface from "@/interfaces/post.interface";
 
 class PostService {
-  private posts;
+  private posts: Ref<Array<postInterface>>;
 
   constructor() {
-    this.posts = ref([]);
+    this.posts = ref<Array<postInterface>>([]);
   }
 
-  getPosts() {
+  getPosts(): Ref<Array<postInterface>> {
     return this.posts;
   }
 
-  async fetchAll() {
+  async fetchAll(): Promise<void> {
     try {
       const url = "https://jsonplaceholder.typicode.com/posts";
       const response = await fetch(url);
