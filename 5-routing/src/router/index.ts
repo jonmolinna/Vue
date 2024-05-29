@@ -5,6 +5,7 @@ import ServicesView from "../views/ServicesView.vue";
 import ContactView from "../views/ContactView.vue";
 import BlockView from "../views/BlockView.vue";
 import PostView from "../views/PostView.vue";
+import AlbumView from "../views/AlbumView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -18,14 +19,19 @@ const routes: Array<RouteRecordRaw> = [
     component: AboutView,
   },
   {
+    path: "/contact",
+    name: "contact",
+    component: ContactView,
+  },
+  {
     path: "/services",
     name: "services",
     component: ServicesView,
   },
   {
-    path: "/contact",
-    name: "contact",
-    component: ContactView,
+    path: "/services/:id",
+    name: "album",
+    component: AlbumView,
   },
   {
     path: "/blog",
