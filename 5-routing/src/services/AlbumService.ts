@@ -8,13 +8,14 @@ class AlbumService {
     this.albums = ref<Array<albumInterface>>([]);
   }
 
-  getAllAlbumsByUserId(id: number) {
-    return this.albums.value.find((album) => album.userId === id);
+  getAllAlbumsByUserId() {
+    console.log("AQUIIII", this.albums);
+    return this.albums;
   }
 
-  async fetchAllAlbum(): Promise<void> {
+  async fetchAllAlbum(id: string): Promise<void> {
     try {
-      const url = "https://jsonplaceholder.typicode.com/albums";
+      const url = `https://jsonplaceholder.typicode.com/albums/?userId=${id}`;
       const response = await fetch(url);
       const json = await response.json();
       this.albums.value = json;

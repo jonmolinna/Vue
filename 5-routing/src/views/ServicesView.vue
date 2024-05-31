@@ -7,7 +7,9 @@
                 <span>@{{ user.username }}</span>
                 <p>{{ user.email }}</p>
                 <div>
-                    <button>Ver posts</button>
+                    <router-link :to="{name: 'album', params: {id: user.id}}" class="link" >
+                        Ver Posts
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -70,7 +72,7 @@
             justify-content: center;
         }
 
-        button {
+        .link {
             background-color: #04AA6D;
             border: none;
             color: white;
@@ -78,6 +80,7 @@
             text-align: center;
             font-size: 0.8rem;
             cursor: pointer;
+            text-decoration: none;
         }
     }
 
