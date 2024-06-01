@@ -10,8 +10,9 @@ import AlbumView from "../views/AlbumView.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "home",
     component: HomeView,
+    // redirect: to => {return { name: 'services'}},
+    name: "home",
   },
   {
     path: "/about",
