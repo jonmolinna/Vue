@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <router-link :to="{name: 'services'}" class="link">Volver atras</router-link>
+        <br><br>
         <h2>Albunes del usuario: {{ userId }}</h2>
         <div class="grid">
             <div v-for="album in albums" :key="album.id" class="card">
@@ -52,5 +54,10 @@
     transition: 0.3s;
     padding: 0.5rem;
 
+}
+
+.link {
+    text-decoration: none;
+    font-size: 1.3rem;
 }
 </style>

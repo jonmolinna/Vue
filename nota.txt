@@ -28,3 +28,80 @@ export default {
 
 -- Snippet Generator App
     - File -> Preferences -> Configure user Snippets
+
+
+Ciclo de Vida
+--------------------------
+beforeCreate
+created
+beforeMount
+Mounted === useEffect
+    - beforeUpdate
+    - updated
+beforeDestroy
+destroyed
+
+
+Created Project
+--------------------------------------
+vue create name-project
+Manually select Features
+    Babel
+    Linter / formatter
+    TypeScript
+
+    -----------------> css pre-processors
+    -------------> Router
+3.x
+Use Class-Style component syntax? N
+Use babel alongside typescript (required for modern mode, auto-detected polyfills, transpiling JSX)? Y
+
+    ----------------> Use history mode for router? (requires proper server setup for index fallback in production) Y
+    --------------------> Sass/Scss (with dart-sasss)
+
+ESLint with error prevention only
+Lint on save
+In dedicated config files
+Save this as a preset for future projects? N
+
+
+Pre Procesadores
+---------------------------------------------
+npm install -D sass-loader sass
+
+
+npm i bootstrap@5.3.3
+npm i @popperjs/core
+
+Router
+---------------------------------------------
+npm i vue-router
+
+
+Interface Rapido
+-----------------------------------------------------
+https://app.quicktype.io/
+
+
+
+Componentes de Authentication
+-------------------------------------
+1. Login
+2. Crear Usuario
+3. Reset Password
+4. Validacion de Email
+5. Auth de doble factor (2fa)
+
+Servicios Auth
+-----------------------------------------
+1. Backend Tradicional
+2. Cloud - Serverless - Baas
+3. Social Login
+4. OAuth y Facilitadores
+
+Gestion de Auth
+--------------------------------------
+1. JWT en estados globales
+2. Sesiones
+3. Cookies
+
