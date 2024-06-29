@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import { shopping } from "./shopping.module";
+import { number } from "./counter.module";
 
 export default createStore({
   state: {
@@ -33,5 +34,6 @@ export default createStore({
     // Pemite subdividir los stores
     // subdivide el store
     shopping,
+    numberModule: number,
   },
 });
