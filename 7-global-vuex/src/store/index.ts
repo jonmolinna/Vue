@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import { shopping } from "./shopping.module";
 import { number } from "./counter.module";
+import { users } from "./users.api.module";
 
 export default createStore({
   state: {
@@ -35,5 +36,6 @@ export default createStore({
     // subdivide el store
     shopping,
     numberModule: number,
+    userApiModule: users,
   },
 });

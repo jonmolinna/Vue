@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <UsersHome />
+    <br>
     <CounterNumber />
     <br>
     <ShoppingProducts />
@@ -13,13 +15,15 @@ import { defineComponent } from 'vue';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import ShoppingProducts from '@/components/shopping/ShoppingProducts.vue';
 import CounterNumber from '@/components/counter/CounterNumber.vue';
+import UsersHome from '@/components/jsonplaceholder/UsersHome.vue';
 
 export default defineComponent({
   name: 'HomeView',
   components: {
     HelloWorld,
     ShoppingProducts,
-    CounterNumber    
+    CounterNumber,
+    UsersHome
   },
 });
 </script>
