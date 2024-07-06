@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 import { shopping } from "./shopping.module";
 import { number } from "./counter.module";
 import { users } from "./users.api.module";
+import { products } from "./products.module";
 
 export default createStore({
   state: {
@@ -37,5 +38,6 @@ export default createStore({
     shopping,
     numberModule: number,
     userApiModule: users,
+    productModule: products,
   },
 });
