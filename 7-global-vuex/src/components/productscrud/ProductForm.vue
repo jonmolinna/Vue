@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
     import productInterface from '@/interface/product.iterface';
-    import { ref, Ref } from 'vue';
+    import { computed, ref, Ref, watch } from 'vue';
     import { useStore } from 'vuex';
 
     const store = useStore();
@@ -30,16 +30,35 @@
     });
 
     const addProduct = (payload: productInterface) => store.commit('addProduct', payload)
+    const product: Ref<productInterface> = computed(() => store.state.productModule.product);
+    const updatedProduct = (payload: productInterface) => store.commit('updatedProduct', payload)
 
     const handleSubmit = () => {
-        const product: productInterface = {...initialForm.value, id: new Date().getTime()}
-        addProduct(product);
+        if (initialForm.value.id !== 0) {
+            const product: productInterface = {...initialForm.value, id: initialForm.value.id};
+            updatedProduct(product)
+        } else {
+            const product: productInterface = {...initialForm.value, id: new Date().getTime()}
+            addProduct(product);
+        }
         
         initialForm.value.name = "";
         initialForm.value.description= "";
         initialForm.value.category = "";
         initialForm.value.price = 0 ;
+        initialForm.value.id = 0;
     };
+
+    watch(product, (product) => {
+        if (product) {
+            // initialForm.value = product;
+            initialForm.value.id = product.id;
+            initialForm.value.name = product.name
+            initialForm.value.description = product.description
+            initialForm.value.category = product.category
+            initialForm.value.price = product.price
+        }
+    })
 
 </script>
 

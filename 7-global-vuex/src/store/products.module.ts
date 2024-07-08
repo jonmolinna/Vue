@@ -31,6 +31,14 @@ export const mutations: MutationTree<stateInterface> = {
       state.product = product;
     }
   },
+  updatedProduct(state, payload: productInterface) {
+    const product = state.products.find((product) => product.id === payload.id);
+    if (product) {
+      state.products = state.products.map((item) =>
+        item.id === product.id ? { ...payload, id: item.id } : item
+      );
+    }
+  },
 };
 
 export const products = {

@@ -6,7 +6,7 @@
             <span class="card_span">{{product.category}}</span>
             <span class="card_span">S/ {{product.price}}</span>
             <div class="card_btns">
-                <button class="card_btn" >Update</button>
+                <button class="card_btn" @click="findProductById(product.id)">Update</button>
                 <button class="card_btn" @click="deleteProduct(product.id)">Delete</button>
             </div>
         </div>
@@ -21,7 +21,8 @@
     const store = useStore();
 
     const products: Ref<productInterface[]> = computed(() => store.state.productModule.products) 
-    const deleteProduct = (id: number) => store.commit('deleteProduct', id)
+    const deleteProduct = (id: number) => store.commit('deleteProduct', id);
+    const findProductById = (product: number) => store.commit('findProductById', product);
 
 </script>
 
