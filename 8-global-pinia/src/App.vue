@@ -2,6 +2,10 @@
   <div class="container">
     <div>
       <ProductLists />
+      <br><br>
+      <CartDetails />
+      <br><br>
+      <CartLists />
     </div>
     <hr>
     <div>
@@ -19,6 +23,8 @@
 <script setup lang="ts">
   import CounterNumber from '@/components/counter/CounterNumber.vue';
   import ProductLists from '@/components/shopping/ProductLists.vue';
+  import CartLists from '@/components/shopping/CartLists.vue';
+  import CartDetails from '@/components/shopping/CartDetails.vue';
 
   import { useCounterStore } from '@/store/counter';
 

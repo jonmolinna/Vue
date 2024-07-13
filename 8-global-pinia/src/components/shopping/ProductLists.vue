@@ -7,7 +7,7 @@
                 <div>
                     <p>{{ product.description }}</p>
                     <p>S/ {{ product.price }}</p>
-                    <button class="card__btn">
+                    <button class="card__btn" @click="addProductToCart(product)">
                         Buy
                     </button>
                 </div>
@@ -17,11 +17,14 @@
 </template>
 
 <script setup lang="ts">
+    import productInterface from '@/interface/product.iterface';
     import { useShopping } from '@/store/shopping';
 
     const useStore = useShopping();
 
     const products = useStore.products;
+    const addProductToCart = (product: productInterface) => useStore.addProductToCart(product);
+    
 </script>
 
 <style scoped>
