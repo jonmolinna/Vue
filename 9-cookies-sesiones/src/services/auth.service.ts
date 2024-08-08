@@ -1,8 +1,10 @@
-import { Ref, ref } from "vue";
+import { inject, Ref, ref } from "vue";
+import { VueCookies } from "vue-cookies";
 
 class AuthService {
   private jwt: Ref<string>;
   private error: Ref<string>;
+  $cookies = inject<VueCookies>("$cookies");
 
   constructor() {
     this.jwt = ref("");
@@ -29,6 +31,9 @@ class AuthService {
 
       const data = await response.json();
       this.jwt.value = data.access_token;
+      // this.$cookies?.set("cookie-auth", data.access_token);
+      $session.start();
+      $session.set("auth", data.access_token);
       return true;
     } catch (error) {
       this.error.value = "Login Failed";

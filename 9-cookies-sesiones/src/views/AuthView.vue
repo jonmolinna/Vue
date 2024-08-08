@@ -22,7 +22,10 @@
 
 <script lang="ts" setup>
     import AuthService from '@/services/auth.service';
-    import { ref } from 'vue';
+    import { inject, ref } from 'vue';
+    import { VueCookies } from 'vue-cookies';
+
+    const $cookies = inject<VueCookies>('$cookies');
     
     let email = ref('');
     let password = ref('');
@@ -36,6 +39,14 @@
         } else {
             console.log('Failed');
         }
+    }
+
+    const takeInforFromUser = () => {
+        const token = $cookies?.get('cookie-auth');
+    }
+
+    const getUserInfo = () => {
+        const token = $session.get('auth')
     }
 
 </script>
