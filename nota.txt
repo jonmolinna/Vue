@@ -52,6 +52,8 @@ Manually select Features
 
     -----------------> css pre-processors
     -------------> Router
+    -----------> vuex
+
 3.x
 Use Class-Style component syntax? N
 Use babel alongside typescript (required for modern mode, auto-detected polyfills, transpiling JSX)? Y
@@ -105,3 +107,44 @@ Gestion de Auth
 2. Sesiones
 3. Cookies
 
+
+https://hfp69ilv.directus.app/auth/login
+
+email: testuser@gogodev.net
+password: 12345678
+
+
+http://localhost:9000/auth/login
+email: malina.tanase@dallase.pe
+password: 1234567
+
+
+AWS
+----------------------------------------------
+npm i -g @aws-amplify/cli
+amplify configure
+    - https://console.aws.amazon.com/
+        - authentication -> user and password
+    - region -> 
+    - user name ->
+
+amplify init
+
+
+Vuex
+--------------------------------
+npm i vuex
+
+Cookies
+----------------------------------
+npm install vue-cookies
+
+
+Rutas 92
+--------------------------------
+post -> ...api/auth/register    -> Crear usuario name, email y password
+post -> ...api/auth/login       -> Acceder con un usuario pasando email y password
+get  -> ...api/note             -> Leer notas del usuario autenticado
+post -> ...api/note             -> Guardar nota del usuario pasando 'content'
+
+8-12
