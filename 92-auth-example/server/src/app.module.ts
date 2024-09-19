@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entity/user.entity';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { NotaModule } from './nota/nota.module';
+import { Nota } from './entity/nota.entity';
 
 @Module({
   imports: [
@@ -13,11 +15,12 @@ import { AuthModule } from './auth/auth.module';
       username: 'root',
       password: 'molina125',
       database: 'vuedb',
-      entities: [User],
+      entities: [User, Nota],
       synchronize: true,
     }),
     UsersModule,
     AuthModule,
+    NotaModule,
   ],
   controllers: [],
   providers: [],
