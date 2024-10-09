@@ -18,8 +18,16 @@ export class AuthController {
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  login(@Body() loginDto: LoginDTO) {
-    return this.authService.login(loginDto.email, loginDto.password);
+  async login(@Body() loginDto: LoginDTO) {
+    const token = await this.authService.login(
+      loginDto.email,
+      loginDto.password,
+    );
+    return {
+      message: 'Login Successfully',
+      token: token.token,
+      status: true,
+    };
   }
 
   @UseGuards(AuthGuard)

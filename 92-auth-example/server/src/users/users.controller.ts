@@ -8,6 +8,15 @@ export class UsersController {
 
   @Post('register')
   async create(@Body() createUseDto: CreateUserDto) {
-    return this.usersService.addUser(createUseDto);
+    const response = await this.usersService.addUser(createUseDto);
+    return {
+      message: 'User Created Successfully',
+      user: {
+        id: response.id,
+        name: response.name,
+        email: response.email,
+      },
+      status: true,
+    };
   }
 }

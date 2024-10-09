@@ -4,6 +4,9 @@ import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  //CORS
+  app.enableCors();
+
   app.useGlobalPipes(new ValidationPipe());
 
   // EXCLUIR PASSWORD
