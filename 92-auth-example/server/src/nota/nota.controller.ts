@@ -18,7 +18,13 @@ export class NotaController {
   @Post('add')
   async addNota(@Request() req, @Body() notaDto: CreateNotaDto) {
     const idUser = req.user.sub;
-    return await this.notaService.addNota(idUser, notaDto.content);
+
+    const response = await this.notaService.addNota(idUser, notaDto.content);
+
+    return {
+      status: true,
+      data: response,
+    };
   }
 
   @UseGuards(AuthGuard)
