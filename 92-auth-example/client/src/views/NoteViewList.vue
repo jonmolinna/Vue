@@ -1,43 +1,41 @@
 <template>
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+      <RouterLink :to="{name: 'create'}">Create new note</RouterLink>
+      <button @click.prevent="logout">Logout</button>
+      <table class="table" v-if="notes">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="note in notes" :key="note.id">
+            <th scope="row">{{ note.id }}</th>
+            <td>{{ note.content }}</td>
+          </tr>
+        </tbody>
+    </table>
+    <p v-else>No Data</p>
 </template>
 
 <script lang="ts" setup>
   import useAuth from '@/store/auth';
-  import {ref} from 'vue';
+  import {ref, Ref, onMounted } from 'vue';
+  import INote from '@/interface/INote';
+  import router from '@/router';
 
   const store = useAuth();
 
-  const notes = ref('');
+  const notes:Ref<Array<INote>> = ref([]);
+  
+  onMounted(async () =>  {
+    notes.value = await store.getNotes();
+  })
 
-  notes.value = await store.getNotes();
+  const logout = () => {
+    store.logout();
+    router.push({name: 'login'})
+  }
+
   
 </script>

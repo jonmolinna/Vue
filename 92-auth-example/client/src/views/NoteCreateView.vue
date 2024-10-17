@@ -1,14 +1,35 @@
 <template>
     <form>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="note" class="form-label">My Note</label>
+            <input type="text" class="form-control" id="note" v-model="content">
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success" @click.prevent="handleSubmit">Submit</button>
+        <p>{{ feedback }}</p>
     </form>
 </template>
+
+<script lang="ts" setup>
+    import { ref } from 'vue';
+    import useAuth from '@/store/auth';
+    import router from '@/router';
+
+    const store = useAuth();
+    const content = ref('');
+    const feedback = ref('');
+
+    const handleSubmit = async () => {
+        const response = await store.createNotes(content.value);
+
+        if (response === false) {
+            feedback.value = 'Error recoding the note';
+        }
+        else {
+            router.push({name: 'note'})
+        }
+    }
+
+</script>
+
+
+

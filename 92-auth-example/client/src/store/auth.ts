@@ -84,6 +84,8 @@ const useAuth = defineStore("auth", {
       });
 
       const res = await response.json();
+      console.log("Hola Mundo >>>>>", res);
+      return res;
     },
     async createNotes(content: string) {
       const url = `${this.baseURL}/nota/add`;
@@ -101,6 +103,15 @@ const useAuth = defineStore("auth", {
       });
 
       const res = await response.json();
+      if (res.status === true) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
+    logout() {
+      this.token = null;
     },
   },
 });
