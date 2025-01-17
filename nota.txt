@@ -147,4 +147,9 @@ post -> ...api/auth/login       -> Acceder con un usuario pasando email y passwo
 get  -> ...api/note             -> Leer notas del usuario autenticado
 post -> ...api/note             -> Guardar nota del usuario pasando 'content'
 
-8-12
+
+VUE + GRAPHQL
+--------------------------------------------
+npm install --save graphql graphql-tag @apollo/client
+    (composition api). -> npm install --save @vue/apollo-composable
+    (option api) -> npm install --save @vue/apollo-option
